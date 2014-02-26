@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Git</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="rednaks">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/one-mozilla.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+		
+			<section>
+
+			  <h2>Git Workshop</h2>
+				<hr></hr>
+				<img width="40%" height="50%"style="margin-top:20px;"  src="img/git-logo.png" alt="Unicorn">
+			</section>
+      <section>
+        <h2>$ vim .gitconfig</h2>
+        <pre><code>
+[user]
+  name = rednaks
+  email = s@rednaks.tn
+  signingkey = 336969AC
+  website = rednaks.tn
+  twitter = @Alekkhan
+  linkedin = www.linkedin.com/in/alexandrebm
+  google = +AlexandreBM
+
+[core]
+  editor = vim
+  cvs = git
+
+[web]
+  browser = firefox
+        </code></pre>
+      </section>
+      <section>
+        <ul>
+          <li class="fragment">Problèmatique</li>
+          <li class="fragment">Introcution</li>
+          <li class="fragment">Configuration</li>
+          <li class="fragment">Les commandes de base</li>
+          <li class="fragment">Publier</li>
+        </ul>
+      </section>
+				<section>
+          <section>
+            <h2>Les mini-projets à la fac :<br/> Powred by</h2>
+            <img width="400" height="400" src="img/usb.png">
+          </section>
+          <section>
+            <h3>Invonvéniants</h3>
+            <ol>
+              <li class="fragment">Integration de code difficile</li>
+              <li class="fragment">Pas de possiblitité d'accès simultané sur un fichier</li>
+              <li class="fragment">Engendre des bugs</li>
+              <li class="fragment">Perte de temps</li>
+            </ol>
+          </section>
+          <section>
+            <h3>Solutions</h3>
+              <ol>  
+                <li class="fragment "><s>Une seule personne qui fait 99% du code</s></li>
+                <li class="fragment ">Utilisation d'un CVS: git</li>
+              </ol>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h3>C'est quoi Git ?</h3>
+              <ol>
+                <li class="fragment">Un Logiciel de gestion de version</li>
+                <li class="fragment">Créé par <strong>Linus Torvalds</strong></li>
+                <li class="fragment">Qui a modifié un fichier ?</li>
+                <li class="fragment">Quand il l'a fait ?</li>
+                <li class="fragment">Pourquoi ?</li>
+              </ol>
+          </section>
+          <section>
+            <h3>Comme SVN alors ?</h3>
+              <p class="fragment">Oui</p>
+          </section>
+          <section>
+            <h3>Alors pourquoi Git et pas SVN ?</h3>
+          </section>
+          <section>
+            <h3>Parceque ...<br/>C'est plus rapide</h3>
+          </section>
+          <section>
+            <style type="text/css">
+              .sweet{
+                background-color:#BBEEBB;
+                color: #336633;
+              }
+              .compare{
+                background-color: #EEEEBB;
+                color: #666633;
+              }
+              table{
+                margin-right: auto;
+                margin-left: auto;
+              }
+            </style>
+            <h3>Parceque ...<br/>C'est compact</h3>
+            <table>
+              <tbody><tr>
+                <th></th>
+                <th>Git</th>
+                <th>SVN</th>
+              </tr>
+              <tr>
+                <td>Repo Alone</td>
+                <td class="sweet">24M</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Entire Directory</td>
+                <td class="sweet">43M</td>
+                <td class="compare">61M</td>
+              </tr>
+            </tbody></table>
+          </section>
+          <section>
+            <h3>Parceque ...<br/>l'etape on stage</h3>
+            <img src="img/staginArea.png">
+          </section>
+          <section>
+            <h3>Parceque ...<br/>C'est distribué</h3>
+            <img src="img/nospoon.png">
+          </section>
+          <section>
+            <h3>Parceque ...<br/>C'est facile à apprendre</h3>
+          </section>
+          <section>
+            <h3>Parceque ...<br/>C'est le nouveau "standard"</h3>
+              <p>Android, Apache, Debian, Drupal, Django, Eclipse, Fedora, </p>
+              <p>Firefox OS(gaia),Gnome, KDE, Linux Kernel, Perl, PHP,</p> 
+              <p>PostgreSQL, Qt, Ruby on Rails, X.org ...</p>
+          </section>
+        </section>
+
+        <section>
+            <h2>Les commandes de base<br/>de Git</h2>
+              <p class="fragment">150 commandes au total</p>
+              <p class="fragment">La plupart utilisées en interne par d'autre commandes</p>
+              <p class="fragment">Plus que la moitié utilisées par des humains</p>
+              <p class="fragment">Pensez à les apprendre petit à petit</p>
+        </section>
+        <section>
+          <h3>Configuration de git</h3>
+            <pre><code>
+git config --global user.name "rednaks"
+git config --global user.email "s@rednaks.tn"
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.log auto
+git config --global color.branch auto
+            </code></pre>
+        </section>
+        <section>
+          <section>
+            <h3>Création !</h3>
+          </section>
+          <section>
+            <h3>git init</h3>
+            <ul>
+              <li class="fragment">Initialisation d'un dépo local</li>
+              <li class="fragment">.git</li>
+              <li class="fragment">.git/config</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+          <h3>git status</h3>
+          <p>Une idée sur l'état du dépo :</p>
+          <ul>
+              <li class="fragment">Les nouveaux fichiers</li>
+              <li class="fragment">Les fichiers modifiés</li>
+              <li class="fragment">Les fichiers supprimés</li>
+              <li class="fragment">Les fichiers en attente</li>
+          </ul>
+          </section>
+          <section>
+          <pre><code>
+vim index.html
+git status
+          </code></pre>
+          </section>
+        </section>
+
+      <section>
+        <section>
+          <h3>git add</h3>
+          <img src="img/git-add.png">
+        </section>
+        <section>
+          <pre><code>
+git add index.html
+git status
+          </code></pre>
+        </section>
+      </section>
+        <section>
+          <section>
+          <h3>git commit</h3>
+          <img src="img/git-commit.png">
+          </section>
+          <section>
+            <!-- warning ! -->
+            <img src="img/warning.png">
+          </section>
+          <section>
+          <pre><code>
+git commit -m 'First commit'
+git status
+          </code></pre>
+          </section>
+        </section>
+        <section>
+          <h3>git diff</h3>
+          <pre><code>
+vim index.html
+# faire quelques changements dans le fichier index.html
+git diff
+        </code></pre>
+        </section>
+        <section>
+          <h3>git log</h3>
+          <pre><code>
+git log
+git log -p
+          </code></pre>
+        </section>
+        <section>
+          <section>
+            <h3>On the web !</h3>
+          </section>
+          <section>
+            <!-- New repository Github-->
+            <ul>
+              <li class="framgent">Votre propre serveur</li>
+              <li class="framgent">Bitbucket</li>
+              <li class="framgent">Gitorious</li>
+              <li class="framgent">Github</li>
+            </ul>
+          </section>
+          <section>
+            <h3>git remote</h3>
+            <pre><code>
+git remote add origin https://github.com/netlinksclubs/Git-Workshop.git
+            </code></pre>
+          </section>
+          <section>
+            <h3>git push</h3>
+            <pre><code>
+git push -u origin master
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Clonage !</h3>
+          </section>
+          <section>
+          <pre><code>
+git clone https://github.com/netlinksclubs/Git-Workshop.git
+cd GitParty-Workshop
+          </code></pre>
+          </section>
+        </section>
+        <section>
+        <section>
+          <h3>Pour la prochaine fois</h3>
+            <ol>
+              <li class="framgent">Les branches</li>
+              <li class="fragment">Comment contribuer à un Projet</li>
+              <li class="fragment">Les bonnes pratiques</li>
+            </ol>
+        </section>
+				<section>
+					<h2 >Happy Coding :)</h2>
+				</section>
+      </section>
+<!-- PART II-->
+			<section>
+			<h2>Git Workshop - Part II</h2>
+				<hr></hr>
+				<img width="40%" height="50%"style="margin-top:20px;"  src="img/git-logo.png" alt="Unicorn">
+			</section>
+      <section>
+        <h2> Rappel </h2>
+        <ul>
+          <li class="fragment">git init</li>
+          <li class="fragment">git status</li>
+          <li class="fragment">git add</li>
+          <li class="fragment">git commit</li>
+          <li class="fragment">git log</li>
+          <li class="fragment">git diff</li>
+          <li class="fragment">git remote</li>
+          <li class="fragment">git push</li>
+          <li class="fragment">git clone</li>
+        </ul>
+      </section>
+				<section>
+          <h2> Aujourd'hui </h2>
+          <ol>
+            <li class="fragment">Les branches</li>
+            <li class="fragment">Les conflits</li>
+            <li class="fragment">Comment Contribuer</li>
+            <li class="fragment">Des bonnes pratiques</li>
+          </ol>
+        </section>
+
+       <section>
+          <section>
+            <h3>git branch</h3>
+            <img src="img/branches.png">
+          </section>
+          <section>
+            <h3>git branch : Création d'une branche & switch</h3>
+            <pre><code>
+git branch
+git branch NewFeature
+git branch
+git checkout -b NewFeature
+            </code></pre>
+          </section>
+          <section>
+          <h3>git branch : changer de branche</h3>
+          <pre><code>
+git checkout -b NewFeature2 
+# ou encore 
+git branch NewFeature2 && git checkout NewFeature2
+          </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>git merge</h3>
+            <pre><code>
+git checkout master
+git merge NewFeature
+git branch -d NewFeature # on effface la branche
+            </code></pre>
+          </section>
+          <section>
+            <img src="img/noConflicts.jpg"/>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Les conflits</h3>
+              <img src="img/conflictmin.jpeg"/>
+          </section>
+          <section>
+            <img src="img/conflitr.png"/>
+          </section>
+
+        </section>
+
+        <section>
+          <section> 
+            <h3>Contribuer à un dépot git</h3>
+            <ol>
+              <li class="fragment">Fork</li>
+              <li class="fragment">Faire un patch</li>
+              <li class="fragment">Faire une Pull Request</li>
+              <li class="fragment">Discuter</li>
+              <li class="fragment">Faire un autre patch</li>
+            </ol>
+          </section>
+          <section>
+            <h3>Fork</h3>
+          </section>
+
+          <section>
+            <h3>Faire un patch</h3>
+            <p> La procédure habituelle</p> 
+          </section>
+          <section>
+            <h3>Une Pull Request</h3>
+          </section>
+          <section>
+            <h3>Discuter</h3>
+          </section>
+
+        </section>
+
+        <section>
+          <h3>Pour aller plus loin</h3>
+          <ol>
+            <li class="fragment">Comment annuler un staged ?</li>
+            <li class="fragment">Comment annuler un commit ?</li>
+            <li class="fragment">Comment faire un hotfix ?</li>
+            <li class="fragment">Comment gérer les conflits ?</li>
+            <li class="fragment"><strong>Gitignore</strong></li>
+          </ol>
+        </section>
+				<section>
+					<h2 >Happy Coding :)</h2>
+				</section>
+ 
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
